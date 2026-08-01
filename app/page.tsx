@@ -5,6 +5,7 @@ import { ServicesGrid } from "@/components/sections/services-grid";
 import { FeaturedProjects } from "@/components/sections/featured-projects";
 import { InvestmentTeaser } from "@/components/sections/investment-teaser";
 import { WhyGls } from "@/components/sections/why-gls";
+import { TeamSpotlight } from "@/components/sections/team-spotlight";
 import { Testimonials } from "@/components/sections/testimonials";
 import { CtaBand } from "@/components/sections/cta-band";
 
@@ -18,6 +19,7 @@ export default function HomePage() {
       <FeaturedProjects />
       <InvestmentTeaser />
       <WhyGls />
+      <TeamSpotlight />
       <Testimonials />
       <CtaBand />
     </>
