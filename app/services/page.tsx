@@ -8,7 +8,7 @@ import { SectionTitle } from "@/components/ui/section-title";
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Residential, commercial, villa, and open plot development alongside investment advisory and venture capital — the full GLS Finvest service range.",
+    "Real estate, land and villa investment, financial consulting, and property advisory — the full GLS Finvest service range, each with a dedicated page.",
 };
 
 const process = [

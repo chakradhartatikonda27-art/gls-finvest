@@ -24,11 +24,7 @@ export function Footer() {
               { Icon: Twitter, href: site.social.twitter },
               { Icon: Facebook, href: site.social.facebook },
             ].map(({ Icon, href }, i) => (
-              <a
-                key={i}
-                href={href}
-                className="w-9 h-9 rounded-full border border-white/10 flex items-center justify-center text-text-secondary hover:text-gold hover:border-gold transition-colors"
-              >
+              <a key={i} href={href} className="w-9 h-9 rounded-full border border-white/10 flex items-center justify-center text-text-secondary hover:text-gold hover:border-gold transition-colors">
                 <Icon size={16} />
               </a>
             ))}
@@ -51,9 +47,9 @@ export function Footer() {
         <div>
           <h4 className="font-heading font-semibold text-text mb-5">Services</h4>
           <ul className="space-y-3">
-            {services.slice(0, 6).map((s) => (
+            {services.map((s) => (
               <li key={s.slug}>
-                <Link href="/services" className="text-sm text-text-secondary hover:text-gold transition-colors">
+                <Link href={`/services/${s.slug}`} className="text-sm text-text-secondary hover:text-gold transition-colors">
                   {s.title}
                 </Link>
               </li>
