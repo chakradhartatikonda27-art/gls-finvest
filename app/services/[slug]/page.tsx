@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { services } from "@/lib/data/services";
 import { ServiceHero } from "@/components/sections/service-hero";
+import { ServiceFactsStrip } from "@/components/sections/service-facts-strip";
 import { ServiceOverview } from "@/components/sections/service-overview";
 import { WhyChooseService } from "@/components/sections/why-choose-service";
 import { ProcessFlow } from "@/components/sections/process-flow";
@@ -33,6 +34,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
   return (
     <>
       <ServiceHero title={service.title} tagline={service.heroTagline} />
+      <ServiceFactsStrip slug={service.slug} />
       <ServiceOverview service={service} />
       <WhyChooseService />
       <ProcessFlow />

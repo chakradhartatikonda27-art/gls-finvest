@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { MapPin, Ruler } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
-import { ImagePlaceholder } from "@/components/ui/image-placeholder";
+import { ProjectPhoto } from "@/components/graphics/project-photo";
 import { projects } from "@/lib/data/projects";
 import { cn } from "@/lib/utils";
 
@@ -45,7 +45,7 @@ export function ProjectsGrid() {
               whileHover={{ y: -8, transition: { duration: 0.3 } }}
               className="rounded-card overflow-hidden border border-border bg-bg-card hover:shadow-card transition-shadow duration-500"
             >
-              <ImagePlaceholder label={p.category} aspect="aspect-[16/10]" className="rounded-none" />
+              <ProjectPhoto category={p.category} className="aspect-[16/10]" sizes="(min-width: 768px) 50vw, 100vw" />
               <div className="p-7">
                 <span className="text-xs font-semibold uppercase tracking-widest text-gold">{p.status}</span>
                 <h3 className="mt-2 text-2xl font-heading font-semibold text-text">{p.name}</h3>
