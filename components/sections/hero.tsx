@@ -1,8 +1,8 @@
 "use client";
 
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import { ChevronDown, Phone } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
@@ -10,35 +10,74 @@ import { Magnetic } from "@/components/ui/magnetic";
 import { AnimatedBackground } from "@/components/graphics/animated-background";
 import { site } from "@/lib/data/site";
 
-// Verified "Free to use under the Unsplash License" photo, tagged "real estate"
-// by the photographer — commercial use permitted, no attribution required.
-const heroPhoto = "https://images.unsplash.com/photo-1771450092348-5f33e2cc2963";
+// Verified "Free to use under the Unsplash License" photos — commercial use
+// permitted, no attribution required. Rotating hero background, mixing real
+// estate and financial/investment imagery.
+const heroPhotos = [
+  { url: "https://images.unsplash.com/photo-1771450092348-5f33e2cc2963", alt: "City skyline at dusk" },
+  { url: "https://images.unsplash.com/photo-1534951009808-766178b47a4f", alt: "Stacked gold coins symbolizing financial growth" },
+  { url: "https://images.unsplash.com/photo-1416331108676-a22ccb276e35", alt: "Villa surrounded by trees" },
+  { url: "https://images.unsplash.com/photo-1743178207584-4a0c1109975e", alt: "Modern glass office building" },
+  { url: "https://images.unsplash.com/photo-1768638687896-35bde623d532", alt: "Modern residential apartment building" },
+];
 
 export function Hero() {
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
+  const [photoIndex, setPhotoIndex] = useState(0);
 
   const blobY1 = useTransform(scrollYProgress, [0, 1], [0, 120]);
   const blobY2 = useTransform(scrollYProgress, [0, 1], [0, -80]);
-  const photoY = useTransform(scrollYProgress, [0, 1], [0, 80]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setPhotoIndex((i) => (i + 1) % heroPhotos.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <section ref={ref} className="relative min-h-[92vh] flex items-center overflow-hidden bg-brand-gradient">
-      <motion.div style={{ y: photoY }} className="absolute inset-0 scale-110">
-        <Image
-          src={`${heroPhoto}?w=2000&q=80&auto=format&fit=crop`}
-          alt="City skyline at dusk"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover"
-        />
-      </motion.div>
+      <div className="absolute inset-0">
+        <AnimatePresence>
+          <motion.div
+            key={photoIndex}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1.2, ease: "easeInOut" }}
+            className="absolute inset-0 scale-110"
+          >
+            <Image
+              src={`${heroPhotos[photoIndex].url}?w=2000&q=80&auto=format&fit=crop`}
+              alt={heroPhotos[photoIndex].alt}
+              fill
+              priority={photoIndex === 0}
+              sizes="100vw"
+              className="object-cover"
+            />
+          </motion.div>
+        </AnimatePresence>
+      </div>
       <div className="absolute inset-0 bg-gradient-to-r from-bg-dark via-bg-dark/85 to-bg-dark/35" />
       <div className="absolute inset-0 bg-gradient-to-t from-bg-dark via-bg-dark/10 to-transparent" />
       <AnimatedBackground />
       <motion.div style={{ y: blobY1 }} className="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full bg-gold/10 blur-[120px]" />
       <motion.div style={{ y: blobY2 }} className="absolute -bottom-40 -left-40 w-[500px] h-[500px] rounded-full bg-primary-light/20 blur-[120px]" />
+
+      {/* Rotation indicator dots */}
+      <div className="absolute bottom-24 right-6 md:right-10 z-20 flex gap-2">
+        {heroPhotos.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => setPhotoIndex(i)}
+            aria-label={`Show background image ${i + 1}`}
+            className={`h-1.5 rounded-full transition-all duration-300 ${
+              i === photoIndex ? "w-6 bg-gold" : "w-1.5 bg-white/30 hover:bg-white/50"
+            }`}
+          />
+        ))}
+      </div>
 
       <Container wide className="relative z-10 pt-32 pb-20">
         <div className="lg:max-w-[58%]">
