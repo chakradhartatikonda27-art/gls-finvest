@@ -31,7 +31,7 @@ export function SectionTitle({
       <h2
         className={cn(
           "text-2xl md:text-3xl lg:text-[2.25rem] font-heading font-bold leading-tight",
-          light ? "text-bg-dark" : "text-text"
+          light ? "text-primary" : "text-text"
         )}
       >
         {title}
@@ -40,7 +40,7 @@ export function SectionTitle({
         <p
           className={cn(
             "mt-3 text-sm md:text-base leading-relaxed",
-            light ? "text-bg-dark/70" : "text-text-secondary"
+            light ? "text-primary/70" : "text-text-secondary"
           )}
         >
           {description}

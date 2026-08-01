@@ -39,8 +39,8 @@ export function GalleryBento() {
               className={cn(
                 "px-4 py-2 rounded-full text-xs md:text-sm font-medium border transition-colors duration-300",
                 filter === c
-                  ? "bg-gold text-bg-dark border-gold"
-                  : "border-white/15 text-text-secondary hover:border-gold/50 hover:text-gold"
+                  ? "bg-gold text-primary border-gold"
+                  : "border-border text-text-secondary hover:border-gold/50 hover:text-gold"
               )}
             >
               {c}
@@ -90,7 +90,7 @@ export function GalleryBento() {
                       </span>
                     </div>
 
-                    <div className="absolute top-3 right-3 w-9 h-9 rounded-full bg-bg-dark/60 backdrop-blur-sm border border-white/10 flex items-center justify-center text-text opacity-0 group-hover:opacity-100 scale-75 group-hover:scale-100 transition-all duration-300">
+                    <div className="absolute top-3 right-3 w-9 h-9 rounded-full bg-[#0B1220]/60 backdrop-blur-sm border border-white/10 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 scale-75 group-hover:scale-100 transition-all duration-300">
                       <Expand size={14} />
                     </div>
                   </button>

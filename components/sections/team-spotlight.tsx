@@ -74,7 +74,7 @@ export function TeamSpotlight() {
                       <p className="mt-3 text-sm text-text-secondary leading-relaxed max-w-sm">
                         {member.bio}
                       </p>
-                      <span className="mt-4 inline-flex w-9 h-9 rounded-full border border-white/20 items-center justify-center text-text-secondary hover:text-gold hover:border-gold transition-colors">
+                      <span className="mt-4 inline-flex w-9 h-9 rounded-full border border-border items-center justify-center text-text-secondary hover:text-gold hover:border-gold transition-colors">
                         <Linkedin size={15} />
                       </span>
                     </motion.div>

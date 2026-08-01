@@ -11,7 +11,7 @@ export function Timeline() {
       <Container wide>
         <SectionTitle eyebrow="Our Journey" title="15+ Years of Building, Deliberately" />
         <div className="mt-16 relative max-w-3xl mx-auto">
-          <div className="absolute left-[7px] md:left-1/2 top-0 bottom-0 w-px bg-white/10 md:-translate-x-1/2" />
+          <div className="absolute left-[7px] md:left-1/2 top-0 bottom-0 w-px bg-primary/15 md:-translate-x-1/2" />
           <div className="space-y-10">
             {timeline.map((item, i) => (
               <motion.div

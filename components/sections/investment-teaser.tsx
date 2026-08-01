@@ -55,7 +55,7 @@ export function InvestmentTeaser() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="glass rounded-xl2 p-8 md:p-10"
+          className="bg-bg-card border border-border rounded-xl2 p-8 md:p-10 shadow-card"
         >
           <div className="flex items-center justify-between mb-6">
             <span className="text-sm text-text-secondary">Portfolio Growth Index</span>

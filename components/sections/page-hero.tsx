@@ -11,11 +11,11 @@ export function PageHero({ eyebrow, title, description }: { eyebrow: string; tit
         <span className="text-xs md:text-sm font-heading font-semibold uppercase tracking-[0.25em] text-gold">
           {eyebrow}
         </span>
-        <h1 className="mt-4 text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-text max-w-3xl">
+        <h1 className="mt-4 text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-white max-w-3xl">
           {title}
         </h1>
         {description && (
-          <p className="mt-4 text-base text-text-secondary max-w-2xl leading-relaxed">{description}</p>
+          <p className="mt-4 text-base text-white/75 max-w-2xl leading-relaxed">{description}</p>
         )}
       </Container>
     </section>

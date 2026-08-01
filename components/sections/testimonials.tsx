@@ -22,7 +22,7 @@ export function Testimonials() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="glass rounded-card p-8 flex flex-col"
+              className="bg-bg-card border border-border rounded-card p-8 flex flex-col shadow-card"
             >
               <Quote size={28} className="text-gold/60" />
               <p className="mt-5 text-text-secondary leading-relaxed flex-1">&ldquo;{t.quote}&rdquo;</p>
@@ -31,7 +31,7 @@ export function Testimonials() {
                   <Star key={idx} size={14} className="fill-gold text-gold" />
                 ))}
               </div>
-              <div className="mt-4 pt-4 border-t border-white/10">
+              <div className="mt-4 pt-4 border-t border-border">
                 <div className="font-heading font-semibold text-text text-sm">{t.name}</div>
                 <div className="text-xs text-text-muted mt-0.5">{t.role}</div>
               </div>

@@ -20,7 +20,7 @@ export function FeaturedProjects() {
             align="left"
             className="mx-0"
           />
-          <Button href="/projects" variant="outline" size="sm">
+          <Button href="/projects" variant="outline" size="sm" className="border-primary/30 text-text hover:border-gold hover:text-gold">
             View All Projects
           </Button>
         </div>

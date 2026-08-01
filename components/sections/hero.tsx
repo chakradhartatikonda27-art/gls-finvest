@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import { ChevronDown, Phone } from "lucide-react";
 import { Container } from "@/components/ui/container";
@@ -59,8 +60,7 @@ export function Hero() {
           </motion.div>
         </AnimatePresence>
       </div>
-      <div className="absolute inset-0 bg-gradient-to-r from-bg-dark via-bg-dark/85 to-bg-dark/35" />
-      <div className="absolute inset-0 bg-gradient-to-t from-bg-dark via-bg-dark/10 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#0B1220]/75 via-[#0B1220]/25 to-transparent" />
       <AnimatedBackground />
       <motion.div style={{ y: blobY1 }} className="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full bg-gold/10 blur-[120px]" />
       <motion.div style={{ y: blobY2 }} className="absolute -bottom-40 -left-40 w-[500px] h-[500px] rounded-full bg-primary-light/20 blur-[120px]" />
@@ -90,7 +90,7 @@ export function Hero() {
             {site.tagline} · Since {site.founded}
           </motion.span>
 
-          <h1 className="max-w-2xl text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-bold leading-[1.1] text-text">
+          <h1 className="max-w-2xl text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-bold leading-[1.1] text-white">
             {site.heroHeadline.split(" ").map((word, i) => (
               <motion.span
                 key={i}
@@ -109,7 +109,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.65 }}
-            className="mt-6 max-w-xl text-base md:text-lg text-text-secondary leading-relaxed"
+            className="mt-6 max-w-xl text-base md:text-lg text-white/80 leading-relaxed"
           >
             {site.heroSubheadline}
           </motion.p>
@@ -118,26 +118,19 @@ export function Hero() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.8 }}
-            className="mt-10 flex flex-wrap gap-4"
+            className="mt-10 flex flex-wrap items-center gap-6"
           >
             <Magnetic>
               <Button href="/projects" size="lg">
                 Explore Projects
               </Button>
             </Magnetic>
-            <Magnetic strength={0.25}>
-              <Button href="/contact" variant="outline" size="lg">
-                Book Consultation
-              </Button>
-            </Magnetic>
-            <Button
+            <Link
               href={`tel:${site.phone}`}
-              variant="ghost"
-              size="lg"
-              className="border border-white/10"
+              className="inline-flex items-center gap-2 text-sm font-heading font-medium text-white/85 hover:text-gold transition-colors"
             >
-              <Phone size={18} /> Call Now
-            </Button>
+              <Phone size={16} /> Or call {site.phoneDisplay}
+            </Link>
           </motion.div>
         </div>
 
@@ -162,7 +155,7 @@ export function Hero() {
               className="glass rounded-card px-5 py-4"
             >
               <div className="text-2xl md:text-3xl font-heading font-bold text-gold">{s.value}</div>
-              <div className="text-xs text-text-secondary mt-1">{s.label}</div>
+              <div className="text-xs text-white/70 mt-1">{s.label}</div>
             </motion.div>
           ))}
         </motion.div>
@@ -171,7 +164,7 @@ export function Hero() {
       <motion.div
         animate={{ y: [0, 8, 0] }}
         transition={{ duration: 1.8, repeat: Infinity }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-text-muted"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/60"
       >
         <ChevronDown size={26} />
       </motion.div>

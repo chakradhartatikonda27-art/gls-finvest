@@ -48,13 +48,13 @@ export function Lightbox({
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.25 }}
-          className="fixed inset-0 z-[100] bg-bg-dark/95 backdrop-blur-md flex items-center justify-center p-4 md:p-10"
+          className="fixed inset-0 z-[100] bg-[#0B1220]/95 backdrop-blur-md flex items-center justify-center p-4 md:p-10"
           onClick={onClose}
         >
           <button
             onClick={onClose}
             aria-label="Close"
-            className="absolute top-5 right-5 md:top-8 md:right-8 w-11 h-11 rounded-full border border-white/20 flex items-center justify-center text-text hover:border-gold hover:text-gold transition-colors z-10"
+            className="absolute top-5 right-5 md:top-8 md:right-8 w-11 h-11 rounded-full border border-white/20 flex items-center justify-center text-white hover:border-gold hover:text-gold transition-colors z-10"
           >
             <X size={20} />
           </button>
@@ -65,7 +65,7 @@ export function Lightbox({
               onNavigate((index - 1 + items.length) % items.length);
             }}
             aria-label="Previous image"
-            className="absolute left-3 md:left-8 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full border border-white/20 flex items-center justify-center text-text hover:border-gold hover:text-gold transition-colors z-10"
+            className="absolute left-3 md:left-8 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full border border-white/20 flex items-center justify-center text-white hover:border-gold hover:text-gold transition-colors z-10"
           >
             <ChevronLeft size={20} />
           </button>
@@ -75,7 +75,7 @@ export function Lightbox({
               onNavigate((index + 1) % items.length);
             }}
             aria-label="Next image"
-            className="absolute right-3 md:right-8 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full border border-white/20 flex items-center justify-center text-text hover:border-gold hover:text-gold transition-colors z-10"
+            className="absolute right-3 md:right-8 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full border border-white/20 flex items-center justify-center text-white hover:border-gold hover:text-gold transition-colors z-10"
           >
             <ChevronRight size={20} />
           </button>
@@ -89,7 +89,7 @@ export function Lightbox({
             onClick={(e) => e.stopPropagation()}
             className="relative w-full max-w-4xl"
           >
-            <div className="relative w-full aspect-[4/3] rounded-card overflow-hidden border border-border">
+            <div className="relative w-full aspect-[4/3] rounded-card overflow-hidden border border-white/15">
               <Image
                 src={`${item.photo}?w=1600&q=85&auto=format&fit=crop`}
                 alt={item.label}
@@ -105,9 +105,9 @@ export function Lightbox({
                 <span className="text-xs font-heading font-semibold uppercase tracking-widest text-gold">
                   {item.category}
                 </span>
-                <h3 className="mt-1 text-lg font-heading font-semibold text-text">{item.label}</h3>
+                <h3 className="mt-1 text-lg font-heading font-semibold text-white">{item.label}</h3>
               </div>
-              <span className="text-sm text-text-muted">
+              <span className="text-sm text-white/50">
                 {index + 1} / {items.length}
               </span>
             </div>

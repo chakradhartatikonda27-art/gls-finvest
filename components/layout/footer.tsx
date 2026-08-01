@@ -24,7 +24,7 @@ export function Footer() {
               { Icon: Twitter, href: site.social.twitter },
               { Icon: Facebook, href: site.social.facebook },
             ].map(({ Icon, href }, i) => (
-              <a key={i} href={href} className="w-9 h-9 rounded-full border border-white/10 flex items-center justify-center text-text-secondary hover:text-gold hover:border-gold transition-colors">
+              <a key={i} href={href} className="w-9 h-9 rounded-full border border-border flex items-center justify-center text-text-secondary hover:text-gold hover:border-gold transition-colors">
                 <Icon size={16} />
               </a>
             ))}

@@ -10,8 +10,8 @@ export function ServiceFinalCta() {
       <AnimatedBackground />
       <div className="absolute -top-24 right-0 w-[400px] h-[400px] rounded-full bg-gold/10 blur-[100px]" />
       <Container wide className="relative z-10 text-center max-w-2xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-heading font-bold text-text">Need Expert Guidance?</h2>
-        <p className="mt-3 text-text-secondary">Talk to our investment experts today.</p>
+        <h2 className="text-3xl md:text-4xl font-heading font-bold text-white">Need Expert Guidance?</h2>
+        <p className="mt-3 text-white/75">Talk to our investment experts today.</p>
         <div className="mt-8 flex flex-wrap gap-4 justify-center">
           <Button href="/contact" size="lg">
             Book Consultation

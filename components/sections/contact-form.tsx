@@ -21,7 +21,7 @@ export function ContactForm() {
     "w-full rounded-xl bg-bg-card border border-border px-4 py-3.5 text-sm text-text placeholder:text-text-muted focus:outline-none focus:border-gold/60 transition-colors";
 
   return (
-    <form onSubmit={handleSubmit} className="glass rounded-xl2 p-8 md:p-10 space-y-5">
+    <form onSubmit={handleSubmit} className="bg-bg-card border border-border rounded-xl2 p-8 md:p-10 space-y-5 shadow-card">
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
         <input
           required

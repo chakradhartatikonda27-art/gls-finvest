@@ -10,10 +10,10 @@ export function CtaBand() {
       <div className="absolute -top-24 right-0 w-[400px] h-[400px] rounded-full bg-gold/10 blur-[100px]" />
       <Container wide className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
         <div>
-          <h2 className="text-3xl md:text-4xl font-heading font-bold text-text">
+          <h2 className="text-3xl md:text-4xl font-heading font-bold text-white">
             Ready to Build Your Future With GLS?
           </h2>
-          <p className="mt-3 text-text-secondary max-w-lg">
+          <p className="mt-3 text-white/75 max-w-lg">
             Book a consultation with our advisory team — no obligation, just clarity on your next move.
           </p>
         </div>

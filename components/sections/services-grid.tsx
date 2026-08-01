@@ -38,7 +38,7 @@ export function ServicesGrid() {
                 viewport={{ once: true, margin: "-60px" }}
                 transition={{ duration: 0.5, delay: i * 0.08 }}
                 whileHover={{ y: -6, transition: { duration: 0.25 } }}
-                className="group relative rounded-card p-[1.5px] bg-gradient-to-br from-white/10 via-white/5 to-transparent hover:from-gold/60 hover:via-gold/20 hover:to-transparent transition-all duration-300"
+                className="group relative rounded-card p-[1.5px] bg-gradient-to-br from-primary/10 via-primary/5 to-transparent hover:from-gold/60 hover:via-gold/20 hover:to-transparent transition-all duration-300"
               >
                 <Link
                   href={`/services/${s.slug}`}
@@ -54,7 +54,7 @@ export function ServicesGrid() {
                     />
                     <div className="absolute inset-0 bg-primary/30 mix-blend-multiply" />
                     <div className="absolute inset-0 bg-gradient-to-t from-bg-card via-bg-card/20 to-transparent" />
-                    <div className="absolute bottom-4 left-4 w-14 h-14 rounded-2xl bg-primary/90 backdrop-blur-sm border border-white/10 flex items-center justify-center text-gold group-hover:bg-gold group-hover:text-bg-dark transition-colors duration-300">
+                    <div className="absolute bottom-4 left-4 w-14 h-14 rounded-2xl bg-primary/90 backdrop-blur-sm border border-white/10 flex items-center justify-center text-gold group-hover:bg-gold group-hover:text-primary transition-colors duration-300">
                       <Icon size={26} />
                     </div>
                   </div>

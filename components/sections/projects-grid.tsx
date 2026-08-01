@@ -26,8 +26,8 @@ export function ProjectsGrid() {
               className={cn(
                 "px-5 py-2.5 rounded-full text-sm font-medium border transition-colors duration-300",
                 filter === c
-                  ? "bg-gold text-bg-dark border-gold"
-                  : "border-white/15 text-text-secondary hover:border-gold/50 hover:text-gold"
+                  ? "bg-gold text-primary border-gold"
+                  : "border-border text-text-secondary hover:border-gold/50 hover:text-gold"
               )}
             >
               {c}

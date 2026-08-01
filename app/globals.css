@@ -15,11 +15,21 @@
 }
 
 @layer utilities {
+  /* Dark glass — for elements sitting over the navy hero/CTA bands (bg-brand-gradient),
+     which intentionally stayed dark. */
   .glass {
     background: rgba(26, 36, 53, 0.55);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  /* Light glass — for the navbar and any UI sitting over the light page background. */
+  .glass-light {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    box-shadow: 0 4px 24px -8px rgba(15, 23, 42, 0.12);
   }
   .text-gradient-gold {
     background: linear-gradient(135deg, #C79B42, #D9AE52, #A97925);
@@ -33,7 +43,7 @@
   width: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: #0B1220;
+  background: #F5F7FA;
 }
 ::-webkit-scrollbar-thumb {
   background: #244D9A;

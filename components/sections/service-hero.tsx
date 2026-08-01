@@ -23,7 +23,7 @@ export function ServiceHero({ title, tagline, photo }: { title: string; tagline:
       <div className="absolute -top-32 -right-32 w-[400px] h-[400px] rounded-full bg-gold/10 blur-[100px]" />
       <Container wide className="relative z-10">
         <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Services", href: "/services" }, { label: title }]} />
-        <h1 className="mt-5 text-2xl md:text-4xl lg:text-5xl font-heading font-bold text-text max-w-3xl">
+        <h1 className="mt-5 text-2xl md:text-4xl lg:text-5xl font-heading font-bold text-white max-w-3xl">
           {title}
         </h1>
         <p className="mt-4 text-base text-gold max-w-2xl font-heading">{tagline}</p>

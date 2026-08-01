@@ -22,10 +22,10 @@ export function YoyReturnsBarChart() {
     <div className="h-72 w-full">
       <ResponsiveContainer width="100%" height="100%">
         <BarChart data={[...yoyReturns]} margin={{ top: 8, right: 8, left: -20, bottom: 0 }} barGap={6}>
-          <CartesianGrid stroke="rgba(255,255,255,0.06)" vertical={false} />
-          <XAxis dataKey="year" stroke="#94A3B8" fontSize={12} tickLine={false} axisLine={{ stroke: "rgba(255,255,255,0.08)" }} />
+          <CartesianGrid stroke="rgba(15,23,42,0.08)" vertical={false} />
+          <XAxis dataKey="year" stroke="#94A3B8" fontSize={12} tickLine={false} axisLine={{ stroke: "rgba(15,23,42,0.12)" }} />
           <YAxis stroke="#94A3B8" fontSize={12} tickLine={false} axisLine={false} width={36} unit="%" />
-          <Tooltip content={<ChartTooltip />} cursor={{ fill: "rgba(255,255,255,0.03)" }} />
+          <Tooltip content={<ChartTooltip />} cursor={{ fill: "rgba(15,23,42,0.04)" }} />
           <Legend
             wrapperStyle={{ fontSize: 12, color: "#94A3B8" }}
             formatter={(value) => <span style={{ color: "#CBD5E1" }}>{value}</span>}

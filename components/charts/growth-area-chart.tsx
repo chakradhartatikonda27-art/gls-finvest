@@ -24,13 +24,13 @@ export function GrowthAreaChart() {
               <stop offset="100%" stopColor="#C79B42" stopOpacity={0} />
             </linearGradient>
           </defs>
-          <CartesianGrid stroke="rgba(255,255,255,0.06)" vertical={false} />
+          <CartesianGrid stroke="rgba(15,23,42,0.08)" vertical={false} />
           <XAxis
             dataKey="year"
             stroke="#94A3B8"
             fontSize={12}
             tickLine={false}
-            axisLine={{ stroke: "rgba(255,255,255,0.08)" }}
+            axisLine={{ stroke: "rgba(15,23,42,0.12)" }}
           />
           <YAxis stroke="#94A3B8" fontSize={12} tickLine={false} axisLine={false} width={36} />
           <Tooltip content={<ChartTooltip />} cursor={{ stroke: "#C79B42", strokeWidth: 1, strokeDasharray: "4 4" }} />

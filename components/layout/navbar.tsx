@@ -27,7 +27,7 @@ export function Navbar() {
   const pathname = usePathname();
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
+    const onScroll = () => setScrolled(window.scrollY > 20);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -38,8 +38,8 @@ export function Navbar() {
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
-        scrolled ? "glass py-3" : "bg-transparent py-5"
+        "fixed top-0 left-0 right-0 z-50 bg-white transition-shadow duration-300",
+        scrolled ? "shadow-md py-2.5" : "py-4"
       )}
     >
       <Container wide className="flex items-center justify-between">
@@ -47,18 +47,18 @@ export function Navbar() {
           <Image
             src="/logo.jpg"
             alt="GLS Finvest Pvt Ltd"
-            width={88}
-            height={88}
+            width={72}
+            height={72}
             className="rounded-lg shrink-0"
             priority
           />
-          <span className="hidden sm:block font-heading text-2xl md:text-3xl font-extrabold tracking-tight leading-none drop-shadow-[0_0_12px_rgba(199,155,66,0.35)]">
+          <span className="hidden sm:block font-heading text-xl md:text-2xl font-extrabold tracking-tight leading-none">
             <span className="text-text">GLS</span>{" "}
             <span className="text-gradient-gold">Finvest</span>
           </span>
         </Link>
 
-        <nav className="hidden lg:flex items-center gap-8">
+        <nav className="hidden lg:flex items-center gap-1.5">
           {navLinks.map((link) => {
             const active = pathname === link.href;
             const Icon = navIcons[link.href];
@@ -67,18 +67,14 @@ export function Navbar() {
                 key={link.href}
                 href={link.href}
                 className={cn(
-                  "group relative flex items-center gap-1.5 text-sm font-medium tracking-wide transition-colors py-1",
-                  active ? "text-gold" : "text-text-secondary hover:text-text"
+                  "flex items-center gap-1.5 text-sm font-medium tracking-wide px-4 py-2.5 rounded-lg transition-colors",
+                  active
+                    ? "bg-primary text-white"
+                    : "text-text-secondary hover:text-primary hover:bg-bg-section"
                 )}
               >
-                <Icon size={15} className={cn("transition-colors", active ? "text-gold" : "text-text-muted group-hover:text-gold")} />
+                <Icon size={15} className={active ? "text-white" : "text-text-muted"} />
                 {link.label}
-                <span
-                  className={cn(
-                    "absolute left-0 -bottom-0.5 h-[1.5px] bg-gold transition-all duration-300",
-                    active ? "w-full" : "w-0 group-hover:w-full"
-                  )}
-                />
               </Link>
             );
           })}
@@ -106,7 +102,7 @@ export function Navbar() {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="lg:hidden overflow-hidden glass"
+            className="lg:hidden overflow-hidden bg-white border-t border-border"
           >
             <Container className="flex flex-col gap-1 py-4">
               {navLinks.map((link) => {
@@ -117,11 +113,11 @@ export function Navbar() {
                     key={link.href}
                     href={link.href}
                     className={cn(
-                      "flex items-center gap-3 py-3 text-base font-medium border-b border-white/5 last:border-0",
-                      active ? "text-gold" : "text-text-secondary"
+                      "flex items-center gap-3 py-3 px-3 rounded-lg text-base font-medium",
+                      active ? "bg-primary text-white" : "text-text-secondary"
                     )}
                   >
-                    <Icon size={18} className={active ? "text-gold" : "text-text-muted"} />
+                    <Icon size={18} className={active ? "text-white" : "text-text-muted"} />
                     {link.label}
                   </Link>
                 );

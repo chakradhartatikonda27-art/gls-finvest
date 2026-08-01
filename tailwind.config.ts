@@ -9,7 +9,12 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      // Locked palette — extracted from GLS Finvest logo. Do not add new colors.
+      // Light corporate theme, matching client reference (Federal Land) —
+      // white/light backgrounds, navy blue as dominant color, gold kept as a
+      // brand accent (from the GLS logo) rather than dropped entirely.
+      // Hero-type bands (Hero, PageHero, ServiceHero, CtaBand) intentionally
+      // stay bold navy — they use bg-brand-gradient/hero-overlay below,
+      // which are raw hex, NOT these tokens, so they're unaffected.
       colors: {
         primary: {
           DEFAULT: "#173E82", // Primary Blue
@@ -21,19 +26,19 @@ const config: Config = {
           hover: "#D9AE52", // Button Hover
         },
         bg: {
-          dark: "#0B1220", // Dark Background
-          section: "#111827", // Section Background
-          card: "#1A2435", // Card Background
-          light: "#F8FAFC", // Light Background
+          dark: "#FFFFFF", // was dark navy — now main page background (white)
+          section: "#F5F7FA", // was dark navy — now alternating light section bg
+          card: "#FFFFFF", // was dark navy — now card background (white, differentiated by border/shadow)
+          light: "#F8FAFC",
         },
         text: {
-          DEFAULT: "#FFFFFF",
-          secondary: "#CBD5E1",
+          DEFAULT: "#0F172A", // was white — now near-navy for readability on light bg
+          secondary: "#475569", // was light gray — now slate gray
           muted: "#94A3B8",
         },
         success: "#1FA971",
         border: {
-          DEFAULT: "rgba(255,255,255,.08)",
+          DEFAULT: "rgba(15,23,42,.08)", // was white/8% — now dark/8% for visibility on light bg
         },
       },
       fontFamily: {
