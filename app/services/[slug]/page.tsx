@@ -33,7 +33,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
 
   return (
     <>
-      <ServiceHero title={service.title} tagline={service.heroTagline} />
+      <ServiceHero title={service.title} tagline={service.heroTagline} photo={service.photo} />
       <ServiceFactsStrip slug={service.slug} />
       <ServiceOverview service={service} />
       <WhyChooseService />

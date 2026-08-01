@@ -6,6 +6,7 @@ export type Service = {
   /** 2-3 line card copy for the homepage grid */
   cardDescription: string;
   icon: ServiceIcon;
+  photo: string;
   /** dedicated page content — kept short and scannable on purpose */
   heroTagline: string;
   overview: string;
@@ -21,6 +22,7 @@ export const services: Service[] = [
     cardDescription:
       "Premium residential layouts, commercial spaces, open plots, and gated community properties — with complete legal support.",
     icon: "building",
+    photo: "https://images.unsplash.com/photo-1768638687896-35bde623d532",
     heroTagline: "Property You Can Trust the Paperwork On",
     overview:
       "We source verified residential, commercial, and plotted properties — and clear every title before it reaches you.",
@@ -43,6 +45,7 @@ export const services: Service[] = [
     cardDescription:
       "High-growth land opportunities and premium villa plots for long-term wealth creation.",
     icon: "map",
+    photo: "https://images.unsplash.com/photo-1416331108676-a22ccb276e35",
     heroTagline: "Land Doesn't Depreciate. Poor Diligence Does.",
     overview:
       "We identify plotted developments and villa communities in genuine growth corridors — every title cleared first.",
@@ -65,6 +68,7 @@ export const services: Service[] = [
     cardDescription:
       "Professional investment planning and portfolio guidance to maximize returns while minimizing risk.",
     icon: "trendingUp",
+    photo: "https://images.unsplash.com/photo-1743178207584-4a0c1109975e",
     heroTagline: "Portfolio Decisions, Made With Your Numbers",
     overview:
       "Advisory spanning real estate and venture positions, structured around your actual risk tolerance and timeline.",
@@ -87,6 +91,7 @@ export const services: Service[] = [
     cardDescription:
       "Customized financial consulting and business solutions for individual and corporate needs.",
     icon: "wallet",
+    photo: "https://images.unsplash.com/photo-1694730652852-9404a2d0214b",
     heroTagline: "Financial Planning for the Whole Picture",
     overview:
       "Cash flow planning and financing structure for property purchases — for individuals and businesses alike.",
@@ -109,6 +114,7 @@ export const services: Service[] = [
     cardDescription:
       "Complete consulting: identification, documentation, legal verification, and registration support.",
     icon: "handshake",
+    photo: "https://images.unsplash.com/photo-1521791136064-7986c2920216",
     heroTagline: "From 'Interested' to 'Owned'",
     overview:
       "One coordinated process — identification, documentation, legal verification, and registration — one team accountable throughout.",
@@ -131,6 +137,7 @@ export const services: Service[] = [
     cardDescription:
       "A complete one-stop solution: buying, investment planning, documentation, and post-purchase support.",
     icon: "home",
+    photo: "https://images.unsplash.com/photo-1741156386380-0236c72eb6f9",
     heroTagline: "One Team, Every Stage",
     overview:
       "A single relationship covering buying, investment planning, documentation, and post-purchase support.",

@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Building2, Map, TrendingUp, Wallet, Handshake, Home, ArrowRight, type LucideIcon } from "lucide-react";
 import { Container } from "@/components/ui/container";
@@ -41,17 +42,30 @@ export function ServicesGrid() {
               >
                 <Link
                   href={`/services/${s.slug}`}
-                  className="relative flex flex-col h-full rounded-[calc(theme(borderRadius.card)-1.5px)] bg-bg-card p-8 hover:shadow-card transition-shadow duration-300"
+                  className="relative flex flex-col h-full rounded-[calc(theme(borderRadius.card)-1.5px)] bg-bg-card overflow-hidden hover:shadow-card transition-shadow duration-300"
                 >
-                  <div className="w-14 h-14 rounded-2xl bg-primary/30 flex items-center justify-center text-gold group-hover:bg-gold group-hover:text-bg-dark transition-colors duration-300">
-                    <Icon size={26} />
+                  <div className="relative aspect-[16/10] overflow-hidden">
+                    <Image
+                      src={`${s.photo}?w=800&q=75&auto=format&fit=crop`}
+                      alt={s.title}
+                      fill
+                      sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-primary/30 mix-blend-multiply" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-bg-card via-bg-card/20 to-transparent" />
+                    <div className="absolute bottom-4 left-4 w-14 h-14 rounded-2xl bg-primary/90 backdrop-blur-sm border border-white/10 flex items-center justify-center text-gold group-hover:bg-gold group-hover:text-bg-dark transition-colors duration-300">
+                      <Icon size={26} />
+                    </div>
                   </div>
-                  <h3 className="mt-6 text-xl font-heading font-semibold text-text">{s.title}</h3>
-                  <p className="mt-3 text-sm text-text-secondary leading-relaxed flex-1">{s.cardDescription}</p>
-                  <span className="mt-6 inline-flex items-center gap-2 text-sm font-heading font-medium text-gold">
-                    Learn More
-                    <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
-                  </span>
+                  <div className="flex flex-col flex-1 p-7">
+                    <h3 className="text-xl font-heading font-semibold text-text">{s.title}</h3>
+                    <p className="mt-3 text-sm text-text-secondary leading-relaxed flex-1">{s.cardDescription}</p>
+                    <span className="mt-6 inline-flex items-center gap-2 text-sm font-heading font-medium text-gold">
+                      Learn More
+                      <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
+                    </span>
+                  </div>
                 </Link>
               </motion.div>
             );
