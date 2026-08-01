@@ -3,7 +3,7 @@ import { Poppins, Inter } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
-import { WhatsAppButton } from "@/components/layout/whatsapp-button";
+import { SocialFloatingBar } from "@/components/layout/social-floating-bar";
 import { BackToTop } from "@/components/layout/back-to-top";
 import { ScrollProgress } from "@/components/layout/scroll-progress";
 import { site } from "@/lib/data/site";
@@ -63,7 +63,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Navbar />
         <main>{children}</main>
         <Footer />
-        <WhatsAppButton />
+        <SocialFloatingBar />
         <BackToTop />
       </body>
     </html>

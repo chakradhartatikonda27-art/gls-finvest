@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X, Home, Info, Briefcase, Building2, TrendingUp, Image as ImageIcon, Phone as PhoneIcon, type LucideIcon } from "lucide-react";
@@ -42,8 +43,19 @@ export function Navbar() {
       )}
     >
       <Container wide className="flex items-center justify-between">
-        <Link href="/" className="font-heading text-xl md:text-2xl font-bold tracking-tight text-text">
-          GLS <span className="text-gradient-gold">Finvest</span>
+        <Link href="/" className="flex items-center gap-3 shrink-0">
+          <Image
+            src="/logo.jpg"
+            alt="GLS Finvest Pvt Ltd"
+            width={88}
+            height={88}
+            className="rounded-lg shrink-0"
+            priority
+          />
+          <span className="hidden sm:block font-heading text-2xl md:text-3xl font-extrabold tracking-tight leading-none drop-shadow-[0_0_12px_rgba(199,155,66,0.35)]">
+            <span className="text-text">GLS</span>{" "}
+            <span className="text-gradient-gold">Finvest</span>
+          </span>
         </Link>
 
         <nav className="hidden lg:flex items-center gap-8">
