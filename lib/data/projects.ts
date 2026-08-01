@@ -1,5 +1,8 @@
-// NOTE: Placeholder project data — swap with real GLS Finvest project details,
-// pricing, and photography before launch. Structure is final; content is not.
+// NOTE: Project names, pricing, and status are placeholder — swap with real
+// GLS Finvest project details and photography before launch. Locations and
+// the infrastructure context in highlights (Fintech Valley, Bheemili growth,
+// Anandapuram appreciation) reflect real, current Visakhapatnam market data;
+// only the specific project identity is fictional.
 
 export type Project = {
   slug: string;
@@ -22,7 +25,7 @@ export const projects: Project[] = [
     area: "1,450 – 2,600 sq.ft",
     priceFrom: "₹95 Lakh onwards",
     status: "Ongoing",
-    highlights: ["Sea-facing towers", "Clubhouse & infinity pool", "RERA registered"],
+    highlights: ["Sea-facing towers", "Established residential hub", "RERA registered"],
     image: "residential-tower-skyline",
   },
   {
@@ -33,7 +36,7 @@ export const projects: Project[] = [
     area: "2,800 – 4,200 sq.ft",
     priceFrom: "₹1.8 Cr onwards",
     status: "Ongoing",
-    highlights: ["Gated villa community", "Private gardens", "24/7 security"],
+    highlights: ["Gated villa community", "Bheemili coastal growth corridor", "24/7 security"],
     image: "luxury-villa-community",
   },
   {
@@ -44,7 +47,7 @@ export const projects: Project[] = [
     area: "500 – 12,000 sq.ft",
     priceFrom: "On Request",
     status: "Upcoming",
-    highlights: ["Grade-A office space", "IT/ITES ready", "Flexible floor plates"],
+    highlights: ["Grade-A office space", "Fintech Valley Vizag corridor", "Flexible floor plates"],
     image: "modern-office-building",
   },
   {
@@ -55,7 +58,7 @@ export const projects: Project[] = [
     area: "1,200 – 3,000 sq.ft",
     priceFrom: "₹18 Lakh onwards",
     status: "Ongoing",
-    highlights: ["DTCP approved", "Clear titles", "Gated layout with amenities"],
+    highlights: ["DTCP approved", "High-appreciation growth locality", "Gated layout with amenities"],
     image: "plotted-land-development",
   },
 ];

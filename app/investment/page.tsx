@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { PageHero } from "@/components/sections/page-hero";
 import { InvestmentTeaser } from "@/components/sections/investment-teaser";
+import { WhyInvestVizag } from "@/components/sections/why-invest-vizag";
 import { PortfolioPerformance } from "@/components/sections/portfolio-performance";
 import { WhyInvest } from "@/components/sections/why-invest";
 import { CtaBand } from "@/components/sections/cta-band";
@@ -20,6 +21,7 @@ export default function InvestmentPage() {
         description="Real estate and venture capital, structured under one disciplined advisory process — built for long-horizon growth, not short-term optics."
       />
       <InvestmentTeaser />
+      <WhyInvestVizag />
       <PortfolioPerformance />
       <WhyInvest />
       <CtaBand />
