@@ -1,14 +1,18 @@
 "use client";
 
 import { useRef } from "react";
+import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ChevronDown, Phone } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
-import { SkylineIllustration } from "@/components/graphics/skyline-illustration";
 import { Magnetic } from "@/components/ui/magnetic";
 import { AnimatedBackground } from "@/components/graphics/animated-background";
 import { site } from "@/lib/data/site";
+
+// Verified "Free to use under the Unsplash License" photo, tagged "real estate"
+// by the photographer — commercial use permitted, no attribution required.
+const heroPhoto = "https://images.unsplash.com/photo-1771450092348-5f33e2cc2963";
 
 export function Hero() {
   const ref = useRef<HTMLElement>(null);
@@ -16,25 +20,25 @@ export function Hero() {
 
   const blobY1 = useTransform(scrollYProgress, [0, 1], [0, 120]);
   const blobY2 = useTransform(scrollYProgress, [0, 1], [0, -80]);
-  const skylineY = useTransform(scrollYProgress, [0, 1], [0, 60]);
-  const skylineOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+  const photoY = useTransform(scrollYProgress, [0, 1], [0, 80]);
 
   return (
     <section ref={ref} className="relative min-h-[92vh] flex items-center overflow-hidden bg-brand-gradient">
-      <div className="absolute inset-0 bg-hero-overlay" />
+      <motion.div style={{ y: photoY }} className="absolute inset-0 scale-110">
+        <Image
+          src={`${heroPhoto}?w=2000&q=80&auto=format&fit=crop`}
+          alt="City skyline at dusk"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
+        />
+      </motion.div>
+      <div className="absolute inset-0 bg-gradient-to-r from-bg-dark via-bg-dark/85 to-bg-dark/35" />
+      <div className="absolute inset-0 bg-gradient-to-t from-bg-dark via-bg-dark/10 to-transparent" />
       <AnimatedBackground />
       <motion.div style={{ y: blobY1 }} className="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full bg-gold/10 blur-[120px]" />
       <motion.div style={{ y: blobY2 }} className="absolute -bottom-40 -left-40 w-[500px] h-[500px] rounded-full bg-primary-light/20 blur-[120px]" />
-
-      <motion.div
-        style={{ y: skylineY, opacity: skylineOpacity }}
-        initial={{ opacity: 0, x: 40 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 1, delay: 0.3 }}
-        className="hidden lg:block absolute right-0 top-1/2 -translate-y-1/2 w-[45%] max-w-[560px] pointer-events-none"
-      >
-        <SkylineIllustration className="w-full h-auto" />
-      </motion.div>
 
       <Container wide className="relative z-10 pt-32 pb-20">
         <div className="lg:max-w-[58%]">
