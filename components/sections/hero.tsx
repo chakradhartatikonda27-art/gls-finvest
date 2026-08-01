@@ -47,7 +47,7 @@ export function Hero() {
             {site.tagline} · Since {site.founded}
           </motion.span>
 
-          <h1 className="max-w-2xl text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-heading font-bold leading-[1.05] text-text">
+          <h1 className="max-w-2xl text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-bold leading-[1.1] text-text">
             {site.heroHeadline.split(" ").map((word, i) => (
               <motion.span
                 key={i}
@@ -66,7 +66,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.65 }}
-            className="mt-6 max-w-xl text-lg md:text-xl text-text-secondary leading-relaxed"
+            className="mt-6 max-w-xl text-base md:text-lg text-text-secondary leading-relaxed"
           >
             {site.heroSubheadline}
           </motion.p>

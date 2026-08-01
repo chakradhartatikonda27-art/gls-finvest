@@ -10,10 +10,10 @@ export function FaqAccordion({ faqs }: { faqs: { q: string; a: string }[] }) {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <section className="py-24 bg-bg-section">
+    <section className="py-16 bg-bg-section">
       <Container wide className="max-w-3xl mx-auto">
         <SectionTitle eyebrow="FAQ" title="Frequently Asked Questions" />
-        <div className="mt-12 space-y-3">
+        <div className="mt-8 space-y-2.5">
           {faqs.map((faq, i) => {
             const isOpen = open === i;
             return (

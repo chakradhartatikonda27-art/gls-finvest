@@ -16,10 +16,10 @@ const steps = [
 
 export function ProcessFlow() {
   return (
-    <section className="py-24 bg-bg-dark">
+    <section className="py-16 bg-bg-dark">
       <Container wide>
         <SectionTitle eyebrow="Our Process" title="How It Works, Step by Step" />
-        <div className="mt-16 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+        <div className="mt-10 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
           {steps.map((step, i) => (
             <motion.div
               key={step.title}

@@ -9,43 +9,39 @@ import type { Service } from "@/lib/data/services";
 export function ServiceOverview({ service }: { service: Service }) {
   return (
     <>
-      <section className="py-24 bg-bg-dark">
-        <Container wide className="max-w-3xl mx-auto">
-          <SectionTitle eyebrow="About This Service" title="Overview" align="left" className="mx-0" />
-          <div className="mt-6 space-y-5">
-            {service.overview.map((para, i) => (
-              <p key={i} className="text-text-secondary leading-relaxed text-base md:text-lg">
-                {para}
-              </p>
+      <section className="py-16 bg-bg-dark">
+        <Container wide className="max-w-3xl mx-auto text-center">
+          <p className="text-text-secondary leading-relaxed text-base md:text-lg">{service.overview}</p>
+          <div className="mt-6 flex flex-wrap justify-center gap-3">
+            {service.benefits.map((b) => (
+              <span
+                key={b}
+                className="inline-flex items-center gap-2 rounded-full border border-border bg-bg-card px-4 py-2 text-xs md:text-sm text-text-secondary"
+              >
+                <CheckCircle2 size={14} className="text-gold shrink-0" />
+                {b}
+              </span>
             ))}
           </div>
-          <ul className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-3">
-            {service.benefits.map((b) => (
-              <li key={b} className="flex items-start gap-2.5 text-sm text-text-secondary">
-                <CheckCircle2 size={18} className="text-gold shrink-0 mt-0.5" />
-                {b}
-              </li>
-            ))}
-          </ul>
         </Container>
       </section>
 
-      <section className="py-24 bg-bg-section">
+      <section className="py-16 bg-bg-section">
         <Container wide>
           <SectionTitle eyebrow="Key Services" title="What's Included" />
-          <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-5">
             {service.features.map((f, i) => (
               <motion.div
                 key={f.title}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-40px" }}
-                transition={{ duration: 0.4, delay: i * 0.08 }}
-                whileHover={{ y: -4, borderColor: "rgba(199,155,66,0.4)" }}
-                className="rounded-card border border-border bg-bg-card p-7"
+                transition={{ duration: 0.35, delay: i * 0.06 }}
+                whileHover={{ y: -3, borderColor: "rgba(199,155,66,0.4)" }}
+                className="rounded-card border border-border bg-bg-card p-5"
               >
-                <h4 className="font-heading font-semibold text-lg text-text">{f.title}</h4>
-                <p className="mt-2 text-sm text-text-secondary leading-relaxed">{f.description}</p>
+                <h4 className="font-heading font-semibold text-base text-text">{f.title}</h4>
+                <p className="mt-1.5 text-sm text-text-secondary leading-relaxed">{f.description}</p>
               </motion.div>
             ))}
           </div>

@@ -37,7 +37,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
       <WhyChooseService />
       <ProcessFlow />
       <FaqAccordion faqs={service.faqs} />
-      <section className="py-24 bg-bg-section">
+      <section className="py-16 bg-bg-section">
         <Container wide className="max-w-2xl mx-auto">
           <SectionTitle eyebrow="Get in Touch" title="Talk to Us About This Service" />
           <div className="mt-10">
