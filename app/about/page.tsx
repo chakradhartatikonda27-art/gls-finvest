@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { PageHero } from "@/components/sections/page-hero";
 import { MissionVision } from "@/components/sections/mission-vision";
 import { Timeline } from "@/components/sections/timeline";
+import { TeamCarousel } from "@/components/sections/team-carousel";
 import { WhyGls } from "@/components/sections/why-gls";
 import { StatsBand } from "@/components/sections/stats-band";
 import { CtaBand } from "@/components/sections/cta-band";
@@ -23,6 +24,7 @@ export default function AboutPage() {
       <StatsBand />
       <MissionVision />
       <Timeline />
+      <TeamCarousel />
       <WhyGls />
       <CtaBand />
     </>
