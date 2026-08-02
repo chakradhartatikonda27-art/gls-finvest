@@ -43,8 +43,8 @@ export function WhyInvest() {
           {opportunities.map((o) => (
             <div key={o.title} className="rounded-xl2 bg-brand-gradient p-9">
               <o.icon size={30} className="text-gold" />
-              <h3 className="mt-5 text-xl font-heading font-semibold text-text">{o.title}</h3>
-              <p className="mt-3 text-text-secondary leading-relaxed">{o.description}</p>
+              <h3 className="mt-5 text-xl font-heading font-semibold text-white">{o.title}</h3>
+              <p className="mt-3 text-white/75 leading-relaxed">{o.description}</p>
             </div>
           ))}
         </div>
