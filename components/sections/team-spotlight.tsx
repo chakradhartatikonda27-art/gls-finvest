@@ -40,14 +40,14 @@ export function TeamSpotlight() {
                   className="object-cover"
                   priority={i === 0}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-bg-dark via-bg-dark/50 to-bg-dark/10" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0B1220] via-[#0B1220]/50 to-[#0B1220]/10" />
                 <div className="absolute inset-0 bg-primary/20 mix-blend-multiply" />
 
                 {/* Collapsed state: vertical name label */}
                 {!isActive && (
                   <div className="absolute inset-0 flex items-end p-5">
                     <span
-                      className="text-sm font-heading font-semibold text-text whitespace-nowrap"
+                      className="text-sm font-heading font-semibold text-white whitespace-nowrap"
                       style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
                     >
                       {member.name}
@@ -68,13 +68,13 @@ export function TeamSpotlight() {
                       <span className="text-xs font-heading font-semibold uppercase tracking-widest text-gold">
                         {member.role}
                       </span>
-                      <h3 className="mt-2 text-2xl lg:text-3xl font-heading font-bold text-text">
+                      <h3 className="mt-2 text-2xl lg:text-3xl font-heading font-bold text-white">
                         {member.name}
                       </h3>
-                      <p className="mt-3 text-sm text-text-secondary leading-relaxed max-w-sm">
+                      <p className="mt-3 text-sm text-white/75 leading-relaxed max-w-sm">
                         {member.bio}
                       </p>
-                      <span className="mt-4 inline-flex w-9 h-9 rounded-full border border-border items-center justify-center text-text-secondary hover:text-gold hover:border-gold transition-colors">
+                      <span className="mt-4 inline-flex w-9 h-9 rounded-full border border-white/25 items-center justify-center text-white/75 hover:text-gold hover:border-gold transition-colors">
                         <Linkedin size={15} />
                       </span>
                     </motion.div>
@@ -103,14 +103,14 @@ export function TeamSpotlight() {
                 sizes="100vw"
                 className="object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-bg-dark via-bg-dark/60 to-bg-dark/10" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0B1220] via-[#0B1220]/60 to-[#0B1220]/10" />
               <div className="absolute inset-0 bg-primary/20 mix-blend-multiply" />
               <div className="absolute inset-0 flex flex-col justify-end p-6">
                 <span className="text-xs font-heading font-semibold uppercase tracking-widest text-gold">
                   {member.role}
                 </span>
-                <h3 className="mt-1.5 text-xl font-heading font-bold text-text">{member.name}</h3>
-                <p className="mt-2 text-sm text-text-secondary leading-relaxed">{member.bio}</p>
+                <h3 className="mt-1.5 text-xl font-heading font-bold text-white">{member.name}</h3>
+                <p className="mt-2 text-sm text-white/75 leading-relaxed">{member.bio}</p>
               </div>
             </motion.div>
           ))}
