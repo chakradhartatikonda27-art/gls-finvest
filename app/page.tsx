@@ -5,9 +5,7 @@ import { StatsBand } from "@/components/sections/stats-band";
 import { ServicesGrid } from "@/components/sections/services-grid";
 import { FeaturedProjects } from "@/components/sections/featured-projects";
 import { PropertySpotlight } from "@/components/sections/property-spotlight";
-import { NewsSection } from "@/components/sections/news-section";
 import { InvestmentTeaser } from "@/components/sections/investment-teaser";
-import { WhyGls } from "@/components/sections/why-gls";
 import { TeamSpotlight } from "@/components/sections/team-spotlight";
 import { Testimonials } from "@/components/sections/testimonials";
 import { CtaBand } from "@/components/sections/cta-band";
@@ -22,9 +20,7 @@ export default function HomePage() {
       <ServicesGrid />
       <FeaturedProjects />
       <PropertySpotlight />
-      <NewsSection />
       <InvestmentTeaser />
-      <WhyGls />
       <TeamSpotlight />
       <Testimonials />
       <CtaBand />
