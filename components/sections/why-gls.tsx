@@ -62,7 +62,7 @@ export function WhyGls() {
                         sizes="(min-width: 640px) 50vw, 100vw"
                         className="object-cover"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-bg-dark via-bg-dark/70 to-bg-dark/20" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#0B1220] via-[#0B1220]/70 to-[#0B1220]/20" />
                     </>
                   )}
 
@@ -82,14 +82,14 @@ export function WhyGls() {
 
                     {featured ? (
                       <div className="mt-5 text-3xl font-heading font-bold text-gold">
-                        <Counter value={15} suffix="+" /> <span className="text-xl text-text">Years</span>
+                        <Counter value={15} suffix="+" /> <span className={cn("text-xl", withPhoto ? "text-white" : "text-text")}>Years</span>
                       </div>
                     ) : null}
 
-                    <h4 className={cn("font-heading font-semibold text-text", featured ? "mt-2 text-xl" : "mt-3 text-sm md:text-base")}>
+                    <h4 className={cn("font-heading font-semibold", withPhoto ? "text-white" : "text-text", featured ? "mt-2 text-xl" : "mt-3 text-sm md:text-base")}>
                       {featured ? "Experience" : item.title}
                     </h4>
-                    <p className={cn("text-text-secondary leading-relaxed", featured ? "mt-3 text-sm max-w-[85%]" : "mt-1.5 text-xs hidden md:block")}>
+                    <p className={cn("leading-relaxed", withPhoto ? "text-white/80" : "text-text-secondary", featured ? "mt-3 text-sm max-w-[85%]" : "mt-1.5 text-xs hidden md:block")}>
                       {item.description}
                     </p>
                   </div>

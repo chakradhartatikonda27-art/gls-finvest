@@ -18,7 +18,7 @@ export function ServiceHero({ title, tagline, photo }: { title: string; tagline:
         />
       </div>
       <div className="absolute inset-0 bg-primary/30 mix-blend-multiply" />
-      <div className="absolute inset-0 bg-gradient-to-r from-bg-dark via-bg-dark/88 to-bg-dark/50" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#0B1220] via-[#0B1220]/88 to-[#0B1220]/50" />
       <AnimatedBackground />
       <div className="absolute -top-32 -right-32 w-[400px] h-[400px] rounded-full bg-gold/10 blur-[100px]" />
       <Container wide className="relative z-10">

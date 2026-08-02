@@ -76,7 +76,7 @@ export function GalleryBento() {
                       className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
                     />
                     <div className="absolute inset-0 bg-primary/20 mix-blend-multiply" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-bg-dark via-bg-dark/10 to-transparent opacity-70 group-hover:opacity-90 transition-opacity duration-500" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0B1220] via-[#0B1220]/10 to-transparent opacity-70 group-hover:opacity-90 transition-opacity duration-500" />
 
                     {/* Gold accent line — sweeps in on hover */}
                     <div className="absolute bottom-0 left-0 h-[3px] bg-gradient-to-r from-gold to-gold-hover w-0 group-hover:w-full transition-all duration-500" />
