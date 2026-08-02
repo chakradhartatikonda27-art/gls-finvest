@@ -85,7 +85,7 @@ export function GalleryBento() {
                       <span className="text-[10px] font-heading font-semibold uppercase tracking-widest text-gold opacity-0 group-hover:opacity-100 -translate-y-1 group-hover:translate-y-0 transition-all duration-300">
                         {item.category}
                       </span>
-                      <span className="mt-0.5 text-sm md:text-base font-heading font-semibold text-text">
+                      <span className="mt-0.5 text-sm md:text-base font-heading font-semibold text-white">
                         {item.label}
                       </span>
                     </div>
