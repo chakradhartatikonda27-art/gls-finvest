@@ -22,7 +22,7 @@ export const services: Service[] = [
     cardDescription:
       "Premium residential layouts, commercial spaces, open plots, and gated community properties — with complete legal support.",
     icon: "building",
-    photo: "https://images.unsplash.com/photo-1768638687896-35bde623d532",
+    photo: "https://images.unsplash.com/photo-1759845565036-cbecbcfcb8e2",
     heroTagline: "Property You Can Trust the Paperwork On",
     overview:
       "We source verified residential, commercial, and plotted properties — and clear every title before it reaches you.",
