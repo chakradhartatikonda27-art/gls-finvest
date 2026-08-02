@@ -11,15 +11,15 @@ import { Magnetic } from "@/components/ui/magnetic";
 import { AnimatedBackground } from "@/components/graphics/animated-background";
 import { site } from "@/lib/data/site";
 
-// Verified "Free to use under the Unsplash License" photos — commercial use
-// permitted, no attribution required. Rotating hero background, mixing real
-// estate and financial/investment imagery.
+// Real GLS Finvest photography — stored locally in public/hero/.
 const heroPhotos = [
-  { url: "https://images.unsplash.com/photo-1771450092348-5f33e2cc2963", alt: "City skyline at dusk" },
-  { url: "https://images.unsplash.com/photo-1534951009808-766178b47a4f", alt: "Stacked gold coins symbolizing financial growth" },
-  { url: "https://images.unsplash.com/photo-1416331108676-a22ccb276e35", alt: "Villa surrounded by trees" },
-  { url: "https://images.unsplash.com/photo-1743178207584-4a0c1109975e", alt: "Modern glass office building" },
-  { url: "https://images.unsplash.com/photo-1768638687896-35bde623d532", alt: "Modern residential apartment building" },
+  { url: "/hero/hero-5.png", alt: "GLS Finvest — Slide 1" },
+  { url: "/hero/hero-1.jpg", alt: "GLS Finvest — Slide 2" },
+  { url: "/hero/hero-2.jpg", alt: "GLS Finvest — Slide 3" },
+  { url: "/hero/hero-6.jpg", alt: "GLS Finvest — Slide 4" },
+  { url: "/hero/hero-7.jpg", alt: "GLS Finvest — Slide 5" },
+  { url: "/hero/hero-8.jpg", alt: "GLS Finvest — Slide 6" },
+  { url: "/hero/hero-9.jpg", alt: "GLS Finvest — Slide 7" },
 ];
 
 export function Hero() {
@@ -47,14 +47,15 @@ export function Hero() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 1.2, ease: "easeInOut" }}
-            className="absolute inset-0 scale-110"
+            className="absolute inset-0"
           >
             <Image
-              src={`${heroPhotos[photoIndex].url}?w=2000&q=80&auto=format&fit=crop`}
+              src={heroPhotos[photoIndex].url}
               alt={heroPhotos[photoIndex].alt}
               fill
               priority={photoIndex === 0}
               sizes="100vw"
+              quality={85}
               className="object-cover"
             />
           </motion.div>
