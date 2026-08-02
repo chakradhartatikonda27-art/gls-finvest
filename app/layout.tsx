@@ -56,9 +56,38 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "RealEstateAgent",
+    name: site.legalName,
+    description: site.description,
+    url: siteUrl,
+    telephone: site.phone,
+    email: site.email,
+    foundingDate: String(site.founded),
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: site.address.line1,
+      addressLocality: "Visakhapatnam",
+      addressRegion: "Andhra Pradesh",
+      addressCountry: "IN",
+    },
+    areaServed: {
+      "@type": "City",
+      name: "Visakhapatnam",
+    },
+    sameAs: [site.social.linkedin, site.social.instagram, site.social.facebook, site.social.twitter].filter(
+      (url) => url && url !== "#"
+    ),
+  };
+
   return (
     <html lang="en" className={`${poppins.variable} ${inter.variable}`}>
       <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         <ScrollProgress />
         <Navbar />
         <main>{children}</main>

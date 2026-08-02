@@ -127,7 +127,7 @@ export function Lightbox({
                 >
                   <Image
                     src={`${thumb.photo}?w=120&q=60&auto=format&fit=crop`}
-                    alt=""
+                    alt={`${thumb.label} thumbnail`}
                     fill
                     sizes="64px"
                     className="object-cover"
