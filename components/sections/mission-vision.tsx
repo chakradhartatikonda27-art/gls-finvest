@@ -11,7 +11,7 @@ export function MissionVision() {
         <div className="rounded-xl2 bg-brand-gradient p-8 md:p-10 mb-10 flex flex-col md:flex-row items-center gap-8">
           <div className="flex-1">
             <span className="text-xs font-heading font-semibold uppercase tracking-[0.2em] text-gold">15 Years, One Trajectory</span>
-            <p className="mt-3 text-text-secondary max-w-md">
+            <p className="mt-3 text-white/80 max-w-md">
               From a single residential project in 2009 to a diversified real estate and venture
               portfolio — every milestone built on the last.
             </p>
