@@ -13,7 +13,7 @@ export default async function EditGalleryItemPage({ params }: { params: Promise<
     <div>
       <h1 className="text-2xl font-bold text-white">Edit Gallery Item</h1>
       <div className="mt-6">
-        <GalleryForm initial={item} onSubmit={(input) => updateGalleryItem(id, input)} />
+        <GalleryForm initial={item} onSubmit={updateGalleryItem.bind(null, id)} />
       </div>
     </div>
   );

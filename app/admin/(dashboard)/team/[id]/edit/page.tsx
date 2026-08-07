@@ -13,7 +13,7 @@ export default async function EditTeamMemberPage({ params }: { params: Promise<{
     <div>
       <h1 className="text-2xl font-bold text-white">Edit Team Member</h1>
       <div className="mt-6">
-        <TeamForm initial={member} onSubmit={(input) => updateTeamMember(id, input)} />
+        <TeamForm initial={member} onSubmit={updateTeamMember.bind(null, id)} />
       </div>
     </div>
   );

@@ -2,6 +2,7 @@
 
 import { useState, useTransition } from "react";
 import type { ServiceInput } from "@/app/admin/(dashboard)/services/actions";
+import { ImageUpload } from "@/components/admin/image-upload";
 
 const icons = ["building", "map", "trendingUp", "wallet", "handshake", "home"] as const;
 
@@ -102,15 +103,11 @@ export function ServiceForm({
             ))}
           </select>
         </div>
-        <div>
-          <label className={labelClass}>Photo URL</label>
-          <input
-            required
-            value={form.photo_url}
-            onChange={(e) => setForm({ ...form, photo_url: e.target.value })}
-            className={inputClass}
-          />
-        </div>
+      </div>
+
+      <div>
+        <label className={labelClass}>Photo</label>
+        <ImageUpload value={form.photo_url} onChange={(url) => setForm({ ...form, photo_url: url })} />
       </div>
 
       <div>

@@ -32,7 +32,7 @@ export default async function EditProjectPage({ params }: { params: Promise<{ id
             image_category: project.image_category,
             highlights: (highlights ?? []).map((h) => h.highlight),
           }}
-          onSubmit={(input) => updateProject(id, input)}
+          onSubmit={updateProject.bind(null, id)}
         />
       </div>
     </div>

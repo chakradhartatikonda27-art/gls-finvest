@@ -45,7 +45,7 @@ export default async function EditServicePage({ params }: { params: Promise<{ id
             features: features ?? [],
             faqs: faqs ?? [],
           }}
-          onSubmit={(input) => updateService(id, input)}
+          onSubmit={updateService.bind(null, id)}
         />
       </div>
     </div>

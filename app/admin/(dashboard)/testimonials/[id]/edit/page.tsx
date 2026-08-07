@@ -13,7 +13,7 @@ export default async function EditTestimonialPage({ params }: { params: Promise<
     <div>
       <h1 className="text-2xl font-bold text-white">Edit Testimonial</h1>
       <div className="mt-6">
-        <TestimonialForm initial={item} onSubmit={(input) => updateTestimonial(id, input)} />
+        <TestimonialForm initial={item} onSubmit={updateTestimonial.bind(null, id)} />
       </div>
     </div>
   );

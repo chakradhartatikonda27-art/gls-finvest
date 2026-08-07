@@ -2,6 +2,7 @@
 
 import { useState, useTransition } from "react";
 import type { NewsItemInput } from "@/app/admin/(dashboard)/news/actions";
+import { ImageUpload } from "@/components/admin/image-upload";
 
 export function NewsForm({
   initial,
@@ -90,14 +91,8 @@ export function NewsForm({
       </div>
 
       <div>
-        <label className={labelClass}>Photo URL</label>
-        <input
-          required
-          value={form.photo_url}
-          onChange={(e) => setForm({ ...form, photo_url: e.target.value })}
-          className={inputClass}
-          placeholder="https://..."
-        />
+        <label className={labelClass}>Photo</label>
+        <ImageUpload value={form.photo_url} onChange={(url) => setForm({ ...form, photo_url: url })} />
       </div>
 
       <div>

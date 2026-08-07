@@ -13,7 +13,7 @@ export default async function EditNewsItemPage({ params }: { params: Promise<{ i
     <div>
       <h1 className="text-2xl font-bold text-white">Edit News Item</h1>
       <div className="mt-6">
-        <NewsForm initial={item} onSubmit={(input) => updateNewsItem(id, input)} />
+        <NewsForm initial={item} onSubmit={updateNewsItem.bind(null, id)} />
       </div>
     </div>
   );
