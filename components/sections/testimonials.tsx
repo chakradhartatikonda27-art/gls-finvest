@@ -4,9 +4,17 @@ import { motion } from "framer-motion";
 import { Quote, Star } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { SectionTitle } from "@/components/ui/section-title";
-import { testimonials } from "@/lib/data/content";
 
-export function Testimonials() {
+type Testimonial = {
+  name: string;
+  role: string;
+  quote: string;
+  rating: number;
+};
+
+export function Testimonials({ testimonials }: { testimonials: Testimonial[] }) {
+  if (testimonials.length === 0) return null;
+
   return (
     <section className="py-24 bg-bg-dark">
       <Container wide>

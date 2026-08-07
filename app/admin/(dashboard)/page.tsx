@@ -2,6 +2,7 @@ import { createClient } from "@/lib/supabase/server";
 import Link from "next/link";
 
 const sections = [
+  { href: "/admin/hero", label: "Hero Photos", table: "hero_images" },
   { href: "/admin/projects", label: "Projects", table: "projects" },
   { href: "/admin/services", label: "Services", table: "services" },
   { href: "/admin/team", label: "Team Members", table: "team_members" },

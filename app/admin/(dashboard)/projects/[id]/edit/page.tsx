@@ -30,6 +30,7 @@ export default async function EditProjectPage({ params }: { params: Promise<{ id
             price_from: project.price_from,
             status: project.status,
             image_category: project.image_category,
+            photo_url: project.photo_url ?? "",
             highlights: (highlights ?? []).map((h) => h.highlight),
           }}
           onSubmit={updateProject.bind(null, id)}

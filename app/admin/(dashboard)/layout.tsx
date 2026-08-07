@@ -5,6 +5,7 @@ import { LogoutButton } from "@/components/admin/logout-button";
 
 const navItems = [
   { href: "/admin", label: "Dashboard" },
+  { href: "/admin/hero", label: "Hero Photos" },
   { href: "/admin/projects", label: "Projects" },
   { href: "/admin/services", label: "Services" },
   { href: "/admin/team", label: "Team" },

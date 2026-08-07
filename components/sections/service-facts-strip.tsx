@@ -1,10 +1,10 @@
 import { Info } from "lucide-react";
 import { Container } from "@/components/ui/container";
-import { serviceFacts } from "@/lib/data/service-facts";
 
-export function ServiceFactsStrip({ slug }: { slug: string }) {
-  const facts = serviceFacts[slug];
-  if (!facts) return null;
+type Fact = { label: string; value: string };
+
+export function ServiceFactsStrip({ facts }: { facts: Fact[] }) {
+  if (!facts || facts.length === 0) return null;
 
   const hasRateFact = facts.some((f) => f.value.includes("*"));
 

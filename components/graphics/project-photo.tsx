@@ -2,13 +2,10 @@ import Image from "next/image";
 
 type Category = "Residential" | "Villas" | "Commercial" | "Open Plots";
 
-// Verified "Free to use under the Unsplash License" photos — commercial use,
-// no attribution required. One representative photo per project category
-// (swap for real GLS Finvest project photography when available).
 const photoByCategory: Record<Category, { url: string; alt: string }> = {
   Residential: {
-    url: "https://images.unsplash.com/photo-1768638687896-35bde623d532",
-    alt: "Modern residential apartment building exterior",
+    url: "https://images.unsplash.com/photo-1759845565036-cbecbcfcb8e2",
+    alt: "Modern residential apartment towers with geometric facades",
   },
   Villas: {
     url: "https://images.unsplash.com/photo-1416331108676-a22ccb276e35",
@@ -26,23 +23,23 @@ const photoByCategory: Record<Category, { url: string; alt: string }> = {
 
 export function ProjectPhoto({
   category,
+  photo,
   className,
   sizes = "(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw",
 }: {
   category: Category;
+  photo?: string | null;
   className?: string;
   sizes?: string;
 }) {
-  const photo = photoByCategory[category];
+  const usingRealPhoto = Boolean(photo);
+  const fallback = photoByCategory[category];
+  const src = usingRealPhoto ? photo! : `${fallback.url}?w=1200&q=80&auto=format&fit=crop`;
+  const alt = usingRealPhoto ? category : fallback.alt;
+
   return (
     <div className={`relative overflow-hidden ${className ?? ""}`}>
-      <Image
-        src={`${photo.url}?w=1200&q=80&auto=format&fit=crop`}
-        alt={photo.alt}
-        fill
-        sizes={sizes}
-        className="object-cover"
-      />
+      <Image src={src} alt={alt} fill sizes={sizes} className="object-cover" />
       <div className="absolute inset-0 bg-gradient-to-t from-bg-dark/50 via-transparent to-transparent" />
     </div>
   );

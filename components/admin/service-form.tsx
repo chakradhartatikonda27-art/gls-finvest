@@ -131,7 +131,6 @@ export function ServiceForm({
         />
       </div>
 
-      {/* Benefits */}
       <div className={sectionClass}>
         <label className={labelClass}>Benefits</label>
         {form.benefits.map((b, i) => (
@@ -163,7 +162,6 @@ export function ServiceForm({
         </button>
       </div>
 
-      {/* Features */}
       <div className={sectionClass}>
         <label className={labelClass}>Features</label>
         {form.features.map((f, i) => (
@@ -206,7 +204,6 @@ export function ServiceForm({
         </button>
       </div>
 
-      {/* FAQs */}
       <div className={sectionClass}>
         <label className={labelClass}>FAQs</label>
         {form.faqs.map((f, i) => (

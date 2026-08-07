@@ -6,10 +6,18 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Linkedin } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { SectionTitle } from "@/components/ui/section-title";
-import { team } from "@/lib/data/team";
 
-export function TeamSpotlight() {
+type TeamMember = {
+  name: string;
+  role: string;
+  bio: string;
+  photo: string;
+};
+
+export function TeamSpotlight({ team }: { team: TeamMember[] }) {
   const [active, setActive] = useState(0);
+
+  if (team.length === 0) return null;
 
   return (
     <section className="py-16 bg-bg-section">
@@ -20,7 +28,6 @@ export function TeamSpotlight() {
           description="The judgment that reviews every title, structures every portfolio, and signs off on every recommendation — meet the team."
         />
 
-        {/* Desktop: expand-on-hover spotlight panels */}
         <div className="mt-12 hidden md:flex gap-3 h-[460px]">
           {team.map((member, i) => {
             const isActive = active === i;
@@ -43,7 +50,6 @@ export function TeamSpotlight() {
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0B1220] via-[#0B1220]/50 to-[#0B1220]/10" />
                 <div className="absolute inset-0 bg-primary/20 mix-blend-multiply" />
 
-                {/* Collapsed state: vertical name label */}
                 {!isActive && (
                   <div className="absolute inset-0 flex items-end p-5">
                     <span
@@ -55,7 +61,6 @@ export function TeamSpotlight() {
                   </div>
                 )}
 
-                {/* Expanded state: full detail */}
                 <AnimatePresence>
                   {isActive && (
                     <motion.div
@@ -85,7 +90,6 @@ export function TeamSpotlight() {
           })}
         </div>
 
-        {/* Mobile: stacked cards, full info always visible */}
         <div className="mt-12 md:hidden space-y-5">
           {team.map((member, i) => (
             <motion.div

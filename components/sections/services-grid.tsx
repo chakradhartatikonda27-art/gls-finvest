@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import { Building2, Map, TrendingUp, Wallet, Handshake, Home, ArrowRight, type LucideIcon } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { SectionTitle } from "@/components/ui/section-title";
-import { services, type ServiceIcon } from "@/lib/data/services";
+import type { ServiceIcon } from "@/lib/data/services";
 
 const iconMap: Record<ServiceIcon, LucideIcon> = {
   building: Building2,
@@ -17,7 +17,15 @@ const iconMap: Record<ServiceIcon, LucideIcon> = {
   home: Home,
 };
 
-export function ServicesGrid() {
+type Service = {
+  slug: string;
+  title: string;
+  cardDescription: string;
+  icon: string;
+  photo: string;
+};
+
+export function ServicesGrid({ services }: { services: Service[] }) {
   return (
     <section className="py-16 bg-bg-dark">
       <Container wide>
@@ -29,7 +37,7 @@ export function ServicesGrid() {
 
         <div className="mt-10 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
           {services.map((s, i) => {
-            const Icon = iconMap[s.icon];
+            const Icon = iconMap[s.icon as ServiceIcon] ?? Building2;
             return (
               <motion.div
                 key={s.slug}

@@ -7,9 +7,8 @@ import { SectionTitle } from "@/components/ui/section-title";
 import { Button } from "@/components/ui/button";
 import { ProjectPhoto } from "@/components/graphics/project-photo";
 import { TiltCard } from "@/components/ui/tilt-card";
-import { projects } from "@/lib/data/projects";
 
-export function FeaturedProjects() {
+export function FeaturedProjects({ projects }: { projects: { slug: string; name: string; category: string; location: string; area: string; priceFrom: string; status: string; highlights: string[]; photo?: string | null }[] }) {
   return (
     <section className="py-16 bg-bg-section">
       <Container wide>
@@ -38,7 +37,7 @@ export function FeaturedProjects() {
               >
                 <div className="overflow-hidden">
                   <div className="transition-transform duration-700 group-hover:scale-105">
-                    <ProjectPhoto category={p.category} className="aspect-[4/3]" />
+                    <ProjectPhoto category={p.category as "Residential" | "Villas" | "Commercial" | "Open Plots"} photo={p.photo} className="aspect-[4/3]" />
                   </div>
                 </div>
                 <div className="p-4">

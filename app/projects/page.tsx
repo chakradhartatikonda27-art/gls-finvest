@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { PageHero } from "@/components/sections/page-hero";
 import { ProjectsGrid } from "@/components/sections/projects-grid";
 import { CtaBand } from "@/components/sections/cta-band";
+import { getProjects } from "@/lib/supabase/queries";
 
 export const metadata: Metadata = {
   title: "Projects",
@@ -9,7 +10,9 @@ export const metadata: Metadata = {
     "Explore GLS Finvest's residential, villa, commercial, and open plot developments across Visakhapatnam, Andhra Pradesh.",
 };
 
-export default function ProjectsPage() {
+export default async function ProjectsPage() {
+  const projects = await getProjects();
+
   return (
     <>
       <PageHero
@@ -17,7 +20,7 @@ export default function ProjectsPage() {
         title="Developments Across Visakhapatnam"
         description="Every project carries the same non-negotiables: clean titles, transparent pricing, and delivery on schedule."
       />
-      <ProjectsGrid />
+      <ProjectsGrid projects={projects} />
       <CtaBand />
     </>
   );

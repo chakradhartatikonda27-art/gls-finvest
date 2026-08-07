@@ -2,6 +2,7 @@
 
 import { useState, useTransition } from "react";
 import type { ProjectInput } from "@/app/admin/(dashboard)/projects/actions";
+import { ImageUpload } from "@/components/admin/image-upload";
 
 const categories = ["Residential", "Villas", "Commercial", "Open Plots"] as const;
 const statuses = ["Ongoing", "Completed", "Upcoming"] as const;
@@ -24,6 +25,7 @@ export function ProjectForm({
     price_from: initial?.price_from ?? "",
     status: initial?.status ?? "Ongoing",
     image_category: initial?.image_category ?? "Residential",
+    photo_url: initial?.photo_url ?? "",
     highlights: initial?.highlights ?? [""],
   });
 
@@ -129,6 +131,11 @@ export function ProjectForm({
           onChange={(e) => setForm({ ...form, price_from: e.target.value })}
           className={inputClass}
         />
+      </div>
+
+      <div>
+        <label className={labelClass}>Photo (optional — falls back to a category stock photo if left blank)</label>
+        <ImageUpload value={form.photo_url} onChange={(url) => setForm({ ...form, photo_url: url })} />
       </div>
 
       <div>

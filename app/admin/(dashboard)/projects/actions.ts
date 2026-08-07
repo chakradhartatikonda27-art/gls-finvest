@@ -13,6 +13,7 @@ export type ProjectInput = {
   price_from: string;
   status: "Ongoing" | "Completed" | "Upcoming";
   image_category: string;
+  photo_url: string;
   highlights: string[];
 };
 
@@ -30,6 +31,7 @@ export async function createProject(input: ProjectInput) {
       price_from: input.price_from,
       status: input.status,
       image_category: input.image_category,
+      photo_url: input.photo_url,
     })
     .select()
     .single();
@@ -66,6 +68,7 @@ export async function updateProject(id: string, input: ProjectInput) {
       price_from: input.price_from,
       status: input.status,
       image_category: input.image_category,
+      photo_url: input.photo_url,
       updated_at: new Date().toISOString(),
     })
     .eq("id", id);

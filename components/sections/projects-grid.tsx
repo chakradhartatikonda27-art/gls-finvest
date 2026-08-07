@@ -6,12 +6,23 @@ import { MapPin, Ruler } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
 import { ProjectPhoto } from "@/components/graphics/project-photo";
-import { projects } from "@/lib/data/projects";
 import { cn } from "@/lib/utils";
 
 const categories = ["All", "Residential", "Villas", "Commercial", "Open Plots"] as const;
 
-export function ProjectsGrid() {
+type Project = {
+  slug: string;
+  name: string;
+  category: string;
+  location: string;
+  area: string;
+  priceFrom: string;
+  status: string;
+  photo?: string | null;
+  highlights: string[];
+};
+
+export function ProjectsGrid({ projects }: { projects: Project[] }) {
   const [filter, setFilter] = useState<(typeof categories)[number]>("All");
   const filtered = filter === "All" ? projects : projects.filter((p) => p.category === filter);
 
@@ -45,7 +56,7 @@ export function ProjectsGrid() {
               whileHover={{ y: -8, transition: { duration: 0.3 } }}
               className="rounded-card overflow-hidden border border-border bg-bg-card hover:shadow-card transition-shadow duration-500"
             >
-              <ProjectPhoto category={p.category} className="aspect-[16/10]" sizes="(min-width: 768px) 50vw, 100vw" />
+              <ProjectPhoto category={p.category as "Residential" | "Villas" | "Commercial" | "Open Plots"} photo={p.photo} className="aspect-[16/10]" sizes="(min-width: 768px) 50vw, 100vw" />
               <div className="p-7">
                 <span className="text-xs font-semibold uppercase tracking-widest text-gold">{p.status}</span>
                 <h3 className="mt-2 text-2xl font-heading font-semibold text-text">{p.name}</h3>

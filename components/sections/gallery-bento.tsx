@@ -7,7 +7,6 @@ import { Expand } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { Lightbox } from "@/components/ui/lightbox";
 import { TiltCard } from "@/components/ui/tilt-card";
-import { galleryItems } from "@/lib/data/gallery";
 import { cn } from "@/lib/utils";
 
 const spanClasses: Record<string, string> = {
@@ -17,13 +16,20 @@ const spanClasses: Record<string, string> = {
   normal: "",
 };
 
-export function GalleryBento() {
+type GalleryItem = {
+  label: string;
+  category: string;
+  photo: string;
+  span: "large" | "tall" | "wide" | "normal";
+};
+
+export function GalleryBento({ items: galleryItems }: { items: GalleryItem[] }) {
   const [filter, setFilter] = useState("All");
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   const categories = useMemo(
     () => ["All", ...Array.from(new Set(galleryItems.map((g) => g.category)))],
-    []
+    [galleryItems]
   );
 
   const filtered = filter === "All" ? galleryItems : galleryItems.filter((g) => g.category === filter);
@@ -78,7 +84,6 @@ export function GalleryBento() {
                     <div className="absolute inset-0 bg-primary/20 mix-blend-multiply" />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#0B1220] via-[#0B1220]/10 to-transparent opacity-70 group-hover:opacity-90 transition-opacity duration-500" />
 
-                    {/* Gold accent line — sweeps in on hover */}
                     <div className="absolute bottom-0 left-0 h-[3px] bg-gradient-to-r from-gold to-gold-hover w-0 group-hover:w-full transition-all duration-500" />
 
                     <div className="absolute inset-0 flex flex-col justify-end p-4 md:p-5">

@@ -9,20 +9,29 @@ import { InvestmentTeaser } from "@/components/sections/investment-teaser";
 import { TeamSpotlight } from "@/components/sections/team-spotlight";
 import { Testimonials } from "@/components/sections/testimonials";
 import { CtaBand } from "@/components/sections/cta-band";
+import { getProjects, getServices, getTeamMembers, getTestimonials, getHeroImages } from "@/lib/supabase/queries";
 
-export default function HomePage() {
+export default async function HomePage() {
+  const [heroPhotos, projects, services, team, testimonials] = await Promise.all([
+    getHeroImages(),
+    getProjects(),
+    getServices(),
+    getTeamMembers(),
+    getTestimonials(),
+  ]);
+
   return (
     <>
-      <Hero />
+      <Hero photos={heroPhotos} />
       <TrustMarquee />
       <CompanyTeamIntro />
       <StatsBand />
-      <ServicesGrid />
-      <FeaturedProjects />
-      <PropertySpotlight />
+      <ServicesGrid services={services} />
+      <FeaturedProjects projects={projects} />
+      <PropertySpotlight projects={projects} />
       <InvestmentTeaser />
-      <TeamSpotlight />
-      <Testimonials />
+      <TeamSpotlight team={team} />
+      <Testimonials testimonials={testimonials} />
       <CtaBand />
     </>
   );

@@ -11,18 +11,18 @@ import { Magnetic } from "@/components/ui/magnetic";
 import { AnimatedBackground } from "@/components/graphics/animated-background";
 import { site } from "@/lib/data/site";
 
-// Real GLS Finvest photography — stored locally in public/hero/.
-const heroPhotos = [
-  { url: "/hero/hero-5.png", alt: "GLS Finvest — Slide 1" },
-  { url: "/hero/hero-1.jpg", alt: "GLS Finvest — Slide 2" },
-  { url: "/hero/hero-2.jpg", alt: "GLS Finvest — Slide 3" },
-  { url: "/hero/hero-6.jpg", alt: "GLS Finvest — Slide 4" },
-  { url: "/hero/hero-7.jpg", alt: "GLS Finvest — Slide 5" },
-  { url: "/hero/hero-8.jpg", alt: "GLS Finvest — Slide 6" },
-  { url: "/hero/hero-9.jpg", alt: "GLS Finvest — Slide 7" },
+const fallbackHeroPhotos = [
+  { url: "/hero/hero-5.png", alt: "GLS Finvest" },
+  { url: "/hero/hero-1.jpg", alt: "GLS Finvest" },
+  { url: "/hero/hero-2.jpg", alt: "GLS Finvest" },
+  { url: "/hero/hero-6.jpg", alt: "GLS Finvest" },
+  { url: "/hero/hero-7.jpg", alt: "GLS Finvest" },
+  { url: "/hero/hero-8.jpg", alt: "GLS Finvest" },
+  { url: "/hero/hero-9.jpg", alt: "GLS Finvest" },
 ];
 
-export function Hero() {
+export function Hero({ photos }: { photos?: { url: string; alt: string }[] }) {
+  const heroPhotos = photos && photos.length > 0 ? photos : fallbackHeroPhotos;
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
   const [photoIndex, setPhotoIndex] = useState(0);
@@ -35,7 +35,7 @@ export function Hero() {
       setPhotoIndex((i) => (i + 1) % heroPhotos.length);
     }, 5000);
     return () => clearInterval(interval);
-  }, []);
+  }, [heroPhotos.length]);
 
   return (
     <section ref={ref} className="relative min-h-[92vh] flex items-center overflow-hidden bg-brand-gradient">
@@ -66,7 +66,6 @@ export function Hero() {
       <motion.div style={{ y: blobY1 }} className="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full bg-gold/10 blur-[120px]" />
       <motion.div style={{ y: blobY2 }} className="absolute -bottom-40 -left-40 w-[500px] h-[500px] rounded-full bg-primary-light/20 blur-[120px]" />
 
-      {/* Rotation indicator dots */}
       <div className="absolute bottom-24 right-6 md:right-10 z-20 flex gap-2">
         {heroPhotos.map((_, i) => (
           <button

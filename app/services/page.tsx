@@ -4,6 +4,7 @@ import { ServicesGrid } from "@/components/sections/services-grid";
 import { CtaBand } from "@/components/sections/cta-band";
 import { Container } from "@/components/ui/container";
 import { SectionTitle } from "@/components/ui/section-title";
+import { getServices } from "@/lib/supabase/queries";
 
 export const metadata: Metadata = {
   title: "Services",
@@ -19,7 +20,9 @@ const process = [
   { step: "05", title: "Handover & Support", description: "Registration, possession, or portfolio reporting — with ongoing support after close." },
 ];
 
-export default function ServicesPage() {
+export default async function ServicesPage() {
+  const services = await getServices();
+
   return (
     <>
       <PageHero
@@ -27,7 +30,7 @@ export default function ServicesPage() {
         title="One Team, Every Stage of Your Investment"
         description="From plotted land to venture capital — every service runs through the same disciplined, transparent process."
       />
-      <ServicesGrid />
+      <ServicesGrid services={services} />
       <section className="py-24 bg-bg-section">
         <Container wide>
           <SectionTitle eyebrow="How We Work" title="A Process Built for Predictability" />

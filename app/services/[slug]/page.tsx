@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { services } from "@/lib/data/services";
 import { ServiceHero } from "@/components/sections/service-hero";
 import { ServiceFactsStrip } from "@/components/sections/service-facts-strip";
 import { ServiceOverview } from "@/components/sections/service-overview";
@@ -11,14 +10,15 @@ import { ServiceFinalCta } from "@/components/sections/service-final-cta";
 import { ContactForm } from "@/components/sections/contact-form";
 import { Container } from "@/components/ui/container";
 import { SectionTitle } from "@/components/ui/section-title";
+import { getServiceBySlug, getServiceSlugs } from "@/lib/supabase/queries";
 
-export function generateStaticParams() {
-  return services.map((s) => ({ slug: s.slug }));
+export async function generateStaticParams() {
+  return getServiceSlugs();
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
-  const service = services.find((s) => s.slug === slug);
+  const service = await getServiceBySlug(slug);
   if (!service) return {};
   return {
     title: service.title,
@@ -28,13 +28,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 export default async function ServiceDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const service = services.find((s) => s.slug === slug);
+  const service = await getServiceBySlug(slug);
   if (!service) notFound();
 
   return (
     <>
       <ServiceHero title={service.title} tagline={service.heroTagline} photo={service.photo} />
-      <ServiceFactsStrip slug={service.slug} />
+      <ServiceFactsStrip facts={service.facts} />
       <ServiceOverview service={service} />
       <WhyChooseService />
       <ProcessFlow />
