@@ -1,11 +1,7 @@
 import type { Metadata } from "next";
 import { Poppins, Inter } from "next/font/google";
 import "./globals.css";
-import { Navbar } from "@/components/layout/navbar";
-import { Footer } from "@/components/layout/footer";
-import { SocialFloatingBar } from "@/components/layout/social-floating-bar";
-import { BackToTop } from "@/components/layout/back-to-top";
-import { ScrollProgress } from "@/components/layout/scroll-progress";
+import { SiteChrome } from "@/components/layout/site-chrome";
 import { site } from "@/lib/data/site";
 
 const poppins = Poppins({
@@ -88,12 +84,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        <ScrollProgress />
-        <Navbar />
-        <main>{children}</main>
-        <Footer />
-        <SocialFloatingBar />
-        <BackToTop />
+        <SiteChrome>{children}</SiteChrome>
       </body>
     </html>
   );

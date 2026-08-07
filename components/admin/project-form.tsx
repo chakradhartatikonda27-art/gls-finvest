@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useTransition } from "react";
-import type { ProjectInput } from "@/app/admin/projects/actions";
+import type { ProjectInput } from "@/app/admin/(dashboard)/projects/actions";
 
 const categories = ["Residential", "Villas", "Commercial", "Open Plots"] as const;
 const statuses = ["Ongoing", "Completed", "Upcoming"] as const;
