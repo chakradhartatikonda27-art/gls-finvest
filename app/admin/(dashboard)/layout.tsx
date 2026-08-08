@@ -2,6 +2,7 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { LogoutButton } from "@/components/admin/logout-button";
+import { MobileNav } from "@/components/admin/mobile-nav";
 
 const navItems = [
   { href: "/admin", label: "Dashboard" },
@@ -26,8 +27,10 @@ export default async function AdminLayout({ children }: { children: React.ReactN
   }
 
   return (
-    <div className="min-h-screen bg-[#0B1220] flex">
-      <aside className="w-60 shrink-0 border-r border-white/10 flex flex-col">
+    <div className="min-h-screen bg-[#0B1220] flex flex-col md:flex-row">
+      <MobileNav navItems={navItems} userEmail={user.email ?? ""} />
+
+      <aside className="hidden md:flex w-60 shrink-0 border-r border-white/10 flex-col">
         <div className="p-5 border-b border-white/10">
           <span className="font-bold text-white">GLS Admin</span>
         </div>
@@ -47,7 +50,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
           <LogoutButton />
         </div>
       </aside>
-      <main className="flex-1 p-8 overflow-auto">{children}</main>
+      <main className="flex-1 p-4 md:p-8 overflow-auto">{children}</main>
     </div>
   );
 }
